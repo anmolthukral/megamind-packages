@@ -91,7 +91,7 @@ const items = allItems.slice(
                      </div>
                      
                      <div 
-                        className="border border-gray-200 rounded-lg h-80 overflow-auto relative bg-white shadow-inner scroll-smooth"
+                        className="border border-gray-200 rounded-lg h-80 overflow-auto relative bg-white shadow-inner"
                         onScroll={(e) => setScrollTop(e.currentTarget.scrollTop)}
                      >
                         {isVirtualListEnabled ? (
@@ -99,11 +99,18 @@ const items = allItems.slice(
                             <div style={{ height: `${10000 * 35}px`, position: 'relative' }}>
                                 {(() => {
                                     const itemHeight = 35;
-                                    const startIndex = Math.floor(scrollTop / itemHeight);
-                                    const endIndex = Math.min(10000, startIndex + Math.ceil(320 / itemHeight) + 2);
+                                    const containerHeight = 320;
+                                    const OVERSCAN = 5;
+                                    
+                                    const visibleStartIndex = Math.floor(scrollTop / itemHeight);
+                                    const visibleEndIndex = Math.min(10000, visibleStartIndex + Math.ceil(containerHeight / itemHeight));
+
+                                    const renderStartIndex = Math.max(0, visibleStartIndex - OVERSCAN);
+                                    const renderEndIndex = Math.min(10000, visibleEndIndex + OVERSCAN);
+                                    
                                     const visibleItems = [];
                                     
-                                    for (let i = startIndex; i < endIndex; i++) {
+                                    for (let i = renderStartIndex; i < renderEndIndex; i++) {
                                         visibleItems.push(
                                             <div 
                                                 key={i}
