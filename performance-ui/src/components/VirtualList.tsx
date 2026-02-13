@@ -91,7 +91,8 @@ const items = allItems.slice(
                      </div>
                      
                      <div 
-                        className="border border-gray-200 rounded-lg h-80 overflow-auto relative bg-white shadow-inner"
+                        className="border border-gray-200 rounded-lg overflow-auto relative bg-white shadow-inner"
+                        style={{ height: '320px' }}
                         onScroll={(e) => setScrollTop(e.currentTarget.scrollTop)}
                      >
                         {isVirtualListEnabled ? (
