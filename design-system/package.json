@@ -20,13 +20,13 @@
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/performance-ui.umd.js",
-  "module": "./dist/performance-ui.es.js",
+  "main": "./dist/design-system.umd.js",
+  "module": "./dist/design-system.es.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/performance-ui.es.js",
-      "require": "./dist/performance-ui.umd.js"
+      "import": "./dist/design-system.es.js",
+      "require": "./dist/design-system.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npx tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -59,7 +59,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "ajv": "^8.17.1",
     "storybook": "^8.0.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5.9.3",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^4.5.4"
   },
