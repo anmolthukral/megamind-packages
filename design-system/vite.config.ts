@@ -16,8 +16,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'PerformanceUI',
-      fileName: (format) => `performance-ui.${format}.js`
+      name: 'DesignSystem',
+      fileName: (format) => `design-system.${format}.js`
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
